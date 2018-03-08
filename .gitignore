@@ -2,3 +2,4 @@
 virtualenv/
 *.sqlite3
 geckodriver.log
+__pycache__
