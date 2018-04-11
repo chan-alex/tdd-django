@@ -38,3 +38,11 @@ resource "aws_instance" "staging" {
     Name = "${format("%s-staging-app", var.tag_prefix)}"
   }
 }
+
+resource "aws_route53_record" "staging-app" {
+  zone_id = "Z1JNRRWK6ETOJ7"
+  name    = "tdd-python-staging.chanalex.com"
+  type    = "A"
+  ttl     = "300"
+  records = ["${aws_eip.staging.public_ip}"]
+}
