@@ -1,0 +1,8 @@
+- hosts: tag_Name_tdd_python_staging_app
+  become: true
+  become_user: root
+  become_method: sudo
+
+  roles:
+    - { role: base, tags: base_role }
+    - { role: django-app, tags: django_app }

@@ -1,0 +1,16 @@
+---
+# tasks file for django-app
+
+- apt_repository:
+    repo: ppa:deadsnakes/ppa
+
+- name: Install required packages
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - python3.6
+    - python3.6-venv
+    - git
+  tags:
+    - app_pkgs
