@@ -5,3 +5,5 @@ geckodriver.log
 __pycache__
 *.swp
 /static
+.terraform
+*.tfstate
