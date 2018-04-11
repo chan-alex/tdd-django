@@ -18,9 +18,12 @@ resource "aws_instance" "staging" {
   subnet_id     = "${aws_subnet.network.id}"
 
   vpc_security_group_ids = [
+    "${aws_security_group.allow_egress.id}",
     "${aws_security_group.allow_ssh.id}",
     "${aws_security_group.allow_http.id}",
   ]
+
+  user_data = "${file("user_data.sh")}"
 
   root_block_device {
     delete_on_termination = "True"
