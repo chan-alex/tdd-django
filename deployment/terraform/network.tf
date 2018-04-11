@@ -37,6 +37,23 @@ data "aws_vpc" "selected_vpc" {
   id = "${var.vpc_id}"
 }
 
+resource "aws_security_group" "allow_egress" {
+  name        = "${format("%s-allow_egress", var.tag_prefix)}"
+  description = "-"
+  vpc_id      = "${var.vpc_id}"
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "${format("%s-allow_egress", var.tag_prefix)}"
+  }
+}
+
 resource "aws_security_group" "allow_ssh" {
   name        = "${format("%s-allow_ssh_external", var.tag_prefix)}"
   description = "-"
