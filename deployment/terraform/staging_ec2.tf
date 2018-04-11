@@ -27,14 +27,16 @@ resource "aws_instance" "staging" {
   }
 
   tags = {
-    role = "${format("%s-app", var.tag_prefix)}"
-    env  = "${format("%s-staging", var.tag_prefix)}"
+    project = "${var.tag_prefix}"
+    role = "app"
+    env  = "staging"
     Name = "${format("%s-staging-app", var.tag_prefix)}"
   }
 
   volume_tags = {
-    role = "${format("%s-app", var.tag_prefix)}"
-    env  = "${format("%s-staging", var.tag_prefix)}"
+    project = "${var.tag_prefix}"
+    role = "app"
+    env  = "staging"
     Name = "${format("%s-staging-app", var.tag_prefix)}"
   }
 }
