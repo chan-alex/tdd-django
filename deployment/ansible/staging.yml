@@ -4,5 +4,5 @@
   become_method: sudo
 
   roles:
-    - { role: base, tags: base_role }
-    - { role: django-app, tags: django_app }
+    - { role: base, tags: base-role }
+    - { role: django-app, tags: django-app }
