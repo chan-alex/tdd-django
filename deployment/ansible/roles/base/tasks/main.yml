@@ -33,3 +33,4 @@
     name: "*"
     state: latest
     only_upgrade: yes
+  when: upgrade_pkgs is defined and upgrade_pkgs == "yes"   
