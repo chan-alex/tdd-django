@@ -1,0 +1,23 @@
+
+- apt_repository:
+    repo: ppa:deadsnakes/ppa
+
+- name: Install required packages
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - python3.6
+    - python3.6-venv
+    - git
+  tags:
+    - app_pkgs
+
+- block:
+
+    - name: Create sites base directory
+      file:
+        name: "{{ sites_dir }}"
+        state: directory
+
+  become_user: "{{ sites_owner }}"
