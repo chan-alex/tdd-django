@@ -1,6 +1,0 @@
----
-# tasks file for django-app
-
-- include: app_prerequisites.yml 
-
-- include: staging_app.yml 
